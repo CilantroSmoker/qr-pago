@@ -3,50 +3,132 @@
 <head>
 <meta charset="UTF-8">
 <title>Datos de Transferencia</title>
+
 <style>
-body{
-    font-family: Arial;
-    text-align:center;
-    background:#0f172a;
-    color:white;
-    padding-top:50px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-button{
-    padding:15px;
-    font-size:16px;
-    background:#22c55e;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #020617, #0f172a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
 }
-.card{
-    background:#1e293b;
-    padding:30px;
-    border-radius:12px;
-    width:300px;
-    margin:auto;
+
+/* Card */
+.card {
+    width: 380px;
+    background: #020617;
+    border-radius: 18px;
+    padding: 30px;
+    color: #fff;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow:
+        0 0 20px rgba(239, 68, 68, 0.6),
+        0 0 40px rgba(220, 38, 38, 0.4);
+}
+
+/* Header */
+.card-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.card-header p {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+.card-header h2 {
+    color: #ef4444;
+    margin-top: 5px;
+}
+
+/* Datos */
+.details {
+    background: #0f172a;
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.details div {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #1e293b;
+    padding: 6px 0;
+}
+
+.details div:last-child {
+    border-bottom: none;
+}
+
+/* Button */
+.btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 30px;
+    background: #ef4444;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 0 20px rgba(239, 68, 68, 0.6),
+        0 0 40px rgba(220, 38, 38, 0.4);
 }
 </style>
+
 </head>
 <body>
 
 <div class="card">
-<h2>Datos para Transferencia</h2>
 
-<p id="datos">
-Banco: BancoEstado<br>
-Nombre: Wladimir XXXXX<br>
-RUT: 12.345.678-9<br>
-Cuenta: 12345678<br>
-Correo: correo@email.com
-</p>
+    <div class="card-header">
+        <p>Transferencia Bancaria</p>
+        <h2>Datos de Pago</h2>
+    </div>
 
-<button onclick="copiar()">Copiar datos</button>
+    <div class="details" id="datos">
+        <div><span>Nombre</span><span>Yorkaef Enrique Zuleta Alegre</span></div>
+        <div><span>RUT</span><span>199391976</span></div>
+        <div><span>Banco</span><span>Mercado Pago</span></div>
+        <div><span>Tipo</span><span>Cuenta Vista</span></div>
+        <div><span>N° Cuenta</span><span>1027931489</span></div>
+        <div><span>Correo</span><span>yorka_pro@hotmail.com</span></div>
+    </div>
+
+    <button class="btn" onclick="copiar()">Copiar datos</button>
+
 </div>
 
 <script>
 function copiar(){
-    const texto = document.getElementById("datos").innerText;
+    const texto = 
+`Nombre: Yorkaef Enrique Zuleta Alegre
+RUT: 199391976
+Banco: Mercado Pago
+Tipo: Cuenta Vista
+Número de cuenta: 1027931489
+Correo: yorka_pro@hotmail.com`;
+
     navigator.clipboard.writeText(texto);
     alert("Datos copiados correctamente");
 }
