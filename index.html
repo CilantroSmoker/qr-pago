@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Datos de Transferencia</title>
+<style>
+body{
+    font-family: Arial;
+    text-align:center;
+    background:#0f172a;
+    color:white;
+    padding-top:50px;
+}
+button{
+    padding:15px;
+    font-size:16px;
+    background:#22c55e;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+.card{
+    background:#1e293b;
+    padding:30px;
+    border-radius:12px;
+    width:300px;
+    margin:auto;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+<h2>Datos para Transferencia</h2>
+
+<p id="datos">
+Banco: BancoEstado<br>
+Nombre: Wladimir XXXXX<br>
+RUT: 12.345.678-9<br>
+Cuenta: 12345678<br>
+Correo: correo@email.com
+</p>
+
+<button onclick="copiar()">Copiar datos</button>
+</div>
+
+<script>
+function copiar(){
+    const texto = document.getElementById("datos").innerText;
+    navigator.clipboard.writeText(texto);
+    alert("Datos copiados correctamente");
+}
+</script>
+
+</body>
+</html>
