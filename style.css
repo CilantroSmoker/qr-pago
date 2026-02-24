@@ -9,14 +9,16 @@ body {
     background: linear-gradient(135deg, #020617, #0f172a);
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* ya no centrado vertical */
+    padding-top: 60px;       /* espacio superior tipo app */
     font-family: Arial, sans-serif;
 }
 
 /* Card */
 .card {
-    width: 92%;
+    width: 95%;
     max-width: 650px;
+    min-height: 75vh;        /* 🔥 hace que se vea grande */
     background: #020617;
     border-radius: 20px;
     padding: 40px;
@@ -26,7 +28,7 @@ body {
 }
 
 .card:hover {
-    transform: translateY(-12px);
+    transform: translateY(-8px);
     box-shadow:
         0 0 20px rgba(239, 68, 68, 0.6),
         0 0 40px rgba(220, 38, 38, 0.4);
@@ -35,26 +37,27 @@ body {
 /* Header */
 .card-header {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 .card-header p {
-    font-size: 13px;
+    font-size: 14px;
     color: #9ca3af;
 }
 
 .card-header h2 {
     color: #ef4444;
-    margin-top: 5px;
+    margin-top: 6px;
+    font-size: 24px;
 }
 
 /* Datos */
 .details {
     background: #0f172a;
-    padding: 18px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-    font-size: 14px;
+    padding: 20px;
+    border-radius: 14px;
+    margin-bottom: 30px;
+    font-size: 15px;
     line-height: 1.8;
 }
 
@@ -62,7 +65,7 @@ body {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #1e293b;
-    padding: 6px 0;
+    padding: 8px 0;
 }
 
 .details div:last-child {
@@ -72,41 +75,43 @@ body {
 /* Button */
 .btn {
     width: 100%;
-    padding: 14px;
+    padding: 16px;
     border: none;
     border-radius: 30px;
     background: #ef4444;
     color: #fff;
     font-weight: bold;
+    font-size: 16px;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     box-shadow:
         0 0 20px rgba(239, 68, 68, 0.6),
         0 0 40px rgba(220, 38, 38, 0.4);
 }
 
+/* 📱 Ajustes extra para móvil */
 @media (max-width: 600px) {
 
     body {
-        align-items: center;
-        padding: 20px;
+        padding: 30px 15px;
     }
 
     .card {
         width: 100%;
+        min-height: 80vh;
         padding: 30px;
     }
 
     .details {
-        font-size: 15px;
+        font-size: 16px;
     }
 
     .btn {
-        padding: 16px;
-        font-size: 16px;
+        font-size: 17px;
+        padding: 18px;
     }
 }
