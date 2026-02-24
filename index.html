@@ -1,36 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Datos de Transferencia</title>
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
 <div class="card">
+  <div class="card-header">
+    <div class="badge">Transferencia Bancaria</div>
+    <h2>Datos de Pago</h2>
+  </div>
 
-    <div class="card-header">
-        <p>Transferencia Bancaria</p>
-        <h2>Datos de Pago</h2>
-    </div>
+  <div class="details" id="datos">
+    <div class="row"><span class="label">Nombre</span>  <span class="value">Yorkaef Enrique Zuleta Alegre</span></div>
+    <div class="row"><span class="label">RUT</span>     <span class="value">199391976</span></div>
+    <div class="row"><span class="label">Banco</span>   <span class="value">Mercado Pago</span></div>
+    <div class="row"><span class="label">Tipo</span>    <span class="value">Cuenta Vista</span></div>
+    <div class="row"><span class="label">N° Cuenta</span><span class="value">1027931489</span></div>
+    <div class="row"><span class="label">Correo</span>  <span class="value">yorka_pro@hotmail.com</span></div>
+  </div>
 
-    <div class="details" id="datos">
-        <div><span>Nombre</span><span>Yorkaef Enrique Zuleta Alegre</span></div>
-        <div><span>RUT</span><span>199391976</span></div>
-        <div><span>Banco</span><span>Mercado Pago</span></div>
-        <div><span>Tipo</span><span>Cuenta Vista</span></div>
-        <div><span>N° Cuenta</span><span>1027931489</span></div>
-        <div><span>Correo</span><span>yorka_pro@hotmail.com</span></div>
-    </div>
-
-    <button class="btn" onclick="copiar()">Copiar datos</button>
-
+  <button class="btn" onclick="copiar()"> Copiar datos</button>
 </div>
 
+<div class="toast" id="toast">Datos copiados al portapapeles</div>
+
 <script>
-function copiar(){
-    const texto = 
+function copiar() {
+  const texto =
 `Nombre: Yorkaef Enrique Zuleta Alegre
 RUT: 199391976
 Banco: Mercado Pago
@@ -38,10 +39,12 @@ Tipo: Cuenta Vista
 Número de cuenta: 1027931489
 Correo: yorka_pro@hotmail.com`;
 
-    navigator.clipboard.writeText(texto);
-    alert("Datos copiados correctamente");
+  navigator.clipboard.writeText(texto).then(() => {
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2800);
+  }).catch(() => alert('No se pudo copiar. Intenta manualmente.'));
 }
 </script>
-
 </body>
 </html>
